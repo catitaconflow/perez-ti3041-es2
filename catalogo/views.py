@@ -11,6 +11,21 @@ from django.shortcuts import render
 from django.http import HttpResponseNotFound
 from pathlib import Path
 
+# catalogo/views.py
+from .models import Herramienta
+
+def listado_herramientas(request):
+    # Consulta todos los registros desde la BD
+    herramientas = Herramienta.objects.all()
+
+    contexto = {
+        "herramientas": herramientas,
+        "total": herramientas.count(),
+        "disponibles": herramientas.filter(stock__gt=0).count(),
+    }
+    return render(request, "catalogo/lista.html", contexto)
+
+
 def detalle_herramienta(request, id):
     ruta = Path(__file__).resolve().parent / "data" / "herramientas.json"
     with open(ruta, encoding="utf-8") as f:
@@ -53,23 +68,6 @@ def cargar_herramientas():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
-# Listado completo
-def listado_herramientas(request):
-    herramientas = cargar_herramientas()
-    total = len(herramientas)
-    disponibles = sum(1 for h in herramientas if h["stock"] > 0)
-
-    usuario = request.session.get("usuario")  # 🔹 revisar si hay login
-    mensaje = None
-    if usuario:
-        mensaje = f"Bienvenida, {usuario} 🎉"
-
-    return render(request, "catalogo/lista.html", {
-        "herramientas": herramientas,
-        "total": total,
-        "disponibles": disponibles,
-        "mensaje": mensaje
-    })
 
 # Detalle de una herramienta
 def detalle_herramienta(request, id):

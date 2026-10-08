@@ -1,0 +1,57 @@
+[
+  {
+    "model": "catalogo.herramienta",
+    "pk": 1,
+    "fields": {
+      "nombre": "Martillo carpintero",
+      "categoria": "Manuales",
+      "precio": 5990,
+      "stock": 25,
+      "marca": "Truper"
+    }
+  },
+  {
+    "model": "catalogo.herramienta",
+    "pk": 2,
+    "fields": {
+      "nombre": "Taladro eléctrico",
+      "categoria": "Eléctricas",
+      "precio": 45990,
+      "stock": 10,
+      "marca": "Bosch"
+    }
+  },
+  {
+    "model": "catalogo.herramienta",
+    "pk": 3,
+    "fields": {
+      "nombre": "Llave ajustable",
+      "categoria": "Manuales",
+      "precio": 7990,
+      "stock": 40,
+      "marca": "Stanley"
+    }
+  },
+  {
+    "model": "catalogo.herramienta",
+    "pk": 4,
+    "fields": {
+      "nombre": "Sierra circular",
+      "categoria": "Eléctricas",
+      "precio": 74990,
+      "stock": 8,
+      "marca": "Makita"
+    }
+  },
+  {
+    "model": "catalogo.herramienta",
+    "pk": 5,
+    "fields": {
+      "nombre": "Destornillador de precisión",
+      "categoria": "Manuales",
+      "precio": 3990,
+      "stock": 60,
+      "marca": "Pretul"
+    }
+  }
+]

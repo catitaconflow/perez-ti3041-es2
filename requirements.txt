@@ -1,1 +1,11 @@
 Django==5.0.2
+
+catalina> db.Mascotas.insertMany([{nombre_mascota: "Clementina", edad: 4, propietario: { nombre: "Carlos", apellido: "Paila", fono: 945861236}, atenciones: {numero_atencion: 3, descripcion: "Ecografia abdominal", costo: 5000}}, 
+{nombre_mascota: "Croqueta", edad: 9, propietario: { nombre: "Cristiano", apellido: "Aguilera", fono: 978654891}, atenciones: {numero_atencion: 4, descripcion: "Vacuna antiparasitaria", costo: 10000}},
+{nombre_mascota: "Tortilla", edad: 2, propietario: { nombre: "Maria", apellido: "Mares", fono: 978961557}, atenciones: {numero_atencion: 5, descripcion: "Nacimiento de cachorros", costo: 20000}}])
+
+db.Mascotas.updateMany({},{ $set: { categoria: "gato" } }
+
+catalina> db.Mascotas.dropOne({nombre_mascota:"Nachi"})
+
+catalina> db.Mascotas.updateOne(propietario: 945861236)
